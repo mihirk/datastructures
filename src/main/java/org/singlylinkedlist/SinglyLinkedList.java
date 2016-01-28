@@ -16,8 +16,10 @@ public class SinglyLinkedList<T> {
             return false;
         } else if (nodeToRemove.equals(listPointer)) {
             head = listPointer.getNext();
+            return true;
         } else if (nodeToRemove.equals(listPointer.getNext())) {
             listPointer.setNext(listPointer.getNext().getNext());
+            return true;
         }
         return remove(nodeToRemove, listPointer.getNext());
     }
