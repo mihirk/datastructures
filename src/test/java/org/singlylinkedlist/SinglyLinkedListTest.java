@@ -2,6 +2,7 @@ package org.singlylinkedlist;
 
 import org.junit.Test;
 
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
@@ -109,5 +110,19 @@ public class SinglyLinkedListTest {
         assertTrue(remove);
         assertEquals(2, list.length());
         assertArrayEquals(new Integer[]{3, 2}, list.toArray());
+    }
+
+    @Test
+    public void removeShouldFailInCaseOfElementNotFound() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        boolean remove = list.remove(100);
+        assertFalse(remove);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
     }
 }
