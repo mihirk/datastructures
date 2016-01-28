@@ -51,4 +51,20 @@ public class SinglyLinkedList<T> {
         return array;
     }
 
+    public void insert(T element, int position) {
+        if (position > this.length()) return;
+        Node<T> newNode = new Node<>(element);
+        Node listPointer = head;
+        for (int i = 0; i < position - 1; i++) {
+            listPointer = listPointer.getNext();
+        }
+        if (position == 0) {
+            newNode.setNext(listPointer);
+            head = newNode;
+        } else {
+            newNode.setNext(listPointer.getNext());
+            listPointer.setNext(newNode);
+        }
+    }
+
 }

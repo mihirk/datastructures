@@ -125,4 +125,70 @@ public class SinglyLinkedListTest {
         assertEquals(3, list.length());
         assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
     }
+
+    @Test
+    public void shouldBeAbleToInsertElementAt1() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        list.insert(5, 1);
+        assertEquals(4, list.length());
+        assertArrayEquals(new Integer[]{3, 5, 2, 1}, list.toArray());
+    }
+
+    @Test
+    public void shouldBeAbleToInsertElementAt2() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        list.insert(5, 2);
+        assertEquals(4, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 5, 1}, list.toArray());
+    }
+
+    @Test
+    public void shouldBeAbleToInsertElementAtLast() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        list.insert(5, 3);
+        assertEquals(4, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1, 5}, list.toArray());
+    }
+
+    @Test
+    public void shouldBeAbleToInsertElementIfInvalidPosition() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        list.insert(5, 4);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+    }
+
+    @Test
+    public void shouldBeAbleToInsertElementAtHead() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        assertEquals(3, list.length());
+        assertArrayEquals(new Integer[]{3, 2, 1}, list.toArray());
+        list.insert(5, 0);
+        assertEquals(4, list.length());
+        assertArrayEquals(new Integer[]{5, 3, 2, 1}, list.toArray());
+    }
+
 }
