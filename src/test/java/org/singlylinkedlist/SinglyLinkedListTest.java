@@ -56,4 +56,15 @@ public class SinglyLinkedListTest {
         assertEquals(4, list.length());
         assertArrayEquals(new Boolean[]{Boolean.TRUE, Boolean.TRUE, Boolean.TRUE, Boolean.FALSE}, list.toArray());
     }
+
+    @Test
+    public void shouldBeAbleToCreateListsOfAnyType() throws Exception {
+        SinglyLinkedList<Double> list = new SinglyLinkedList<>();
+        list.add(1.123);
+        list.add(232.332);
+        list.add(32.23);
+        list.add(3333.222);
+        assertEquals(4, list.length());
+        assertArrayEquals(new Double[]{3333.222, 32.23, 232.332, 1.123}, list.toArray());
+    }
 }
