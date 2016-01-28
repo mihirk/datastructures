@@ -191,4 +191,14 @@ public class SinglyLinkedListTest {
         assertArrayEquals(new Integer[]{5, 3, 2, 1}, list.toArray());
     }
 
+    @Test
+    public void shouldBeAbleToInsertElementIfNoElementPresent() throws Exception {
+        SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+        assertEquals(0, list.length());
+        assertArrayEquals(new Integer[]{}, list.toArray());
+        list.insert(5, 0);
+        assertEquals(1, list.length());
+        assertArrayEquals(new Integer[]{5}, list.toArray());
+    }
+
 }
